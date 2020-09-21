@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指令</title>
+    <script src="../Vue.js/vue.js"></script>
+</head>
+<body>
+    <div class="wang">
+        <!-- v-if指令 -->
+        <p v-if = "seen" v-bind:class="style1">你能看见我了<br>指令</p>
+        <!-- v-bind:href跳转 -->
+        <a v-bind:href = "url" target="blank">连接跳转</a>
+        <!-- v-on指令 -->
+        <div v-bind:class = "style1" v-on:click  = "click1">
+            <!-- 修饰符 .stop .prevent -->
+            <div v-on:click = "click2.stop">
+                点击我
+            </div>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue( {
+            el:".wang",
+            data:{
+                seen:true,
+                url:"1.插值.html",
+                style1:'color_and_fontsize'
+            },
+            methods:{
+                click1:function(){
+                    console.log("click1......");
+                },
+                
+                click2:function(){
+                    console.log("click2......");
+                }
+            }
+        });
+    </script>
+    <style>
+        .color_and_fontsize
+        {
+            color: chartreuse;
+            font-weight: bolder;
+        }
+    </style>
+</body>
+        
+    
+</html>

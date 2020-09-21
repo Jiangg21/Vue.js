@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+</head>
+<body>
+    <ul class="wang">
+        <li v-bind:style ="style1" v-for = "item,index in items" v-bind:key = "index">{{index}}.{{item.message}}</li>
+        <br>
+        <li v-bind:style ="style1" v-for = "value, index in object">{{index}}:{{value}}</li>
+        <br>
+        <li v-bind:style ="style1" v-for = "value, key in object"v-bind:index = "key">{{key}}:{{value}}</li>
+    
+        <ul v-for="set in sets">
+            <li v-for="n in even(set)">{{ n }}</li>
+        </ul>
+    </ul>
+    
+</body>
+<script src="../Vue.js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'.wang',
+        data:{
+            items:[
+                {message:'wang'},
+                {message:'jiangg21'},
+                {message:'学习Vueing'}
+            ],
+            object:{
+                title:'今天在图书馆学习一天的Vue！！',
+                author:'jiangg21',
+                publichedAt:'2020-0920'
+            },
+            style1:{
+                color:'green',
+                fontSize:'30px'
+            },
+            sets: [[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]]
+
+        },
+        methods: {
+            even: function (numbers) {
+                return numbers.filter(function (number) {
+                    return number % 2 === 0
+                })
+            }
+        }
+    });
+
+</script>
+</html>

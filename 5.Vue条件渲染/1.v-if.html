@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染 v-if</title>
+</head>
+<body>
+    <div class="wang">
+        <h1 v-if="awesome === 1">1.老汪正在学Vue！</h1>
+        <h1 v-else-if = "awesome=== 2">2.Vue可真有趣！</h1>
+        <h1 v-else-if = "awesome=== 3">3.Vue可真有趣！</h1>
+        <h1 v-else>4.Vue可真有趣！</h1>
+
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+    </div>
+</body>
+<script src="../Vue.js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'.wang',
+        data:{
+            awesome:3,
+            type:'D'
+        }
+    });
+
+</script>
+</html>

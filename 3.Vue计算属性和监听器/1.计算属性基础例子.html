@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性基础例子</title>
+    <script src="../Vue.js/vue.js"></script>
+</head>
+<body>
+    <div class="wang">
+        <div :class = "style1">
+            <p >原始语句："{{message}}"</p>
+            <p>倒序排列后的语句："{{reversedmessage}}"</p>
+
+        </div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:".wang",
+        data:{
+            message:"jiangg21",
+            style1:"message"
+        },
+        //计算属性
+        computed:{
+            //计算属性的getter
+            reversedmessage:function(){
+                //this 指向vm实例
+                return this.message.split('').reverse().join('');
+            }
+        }
+    });
+        console.log(vm.message);//jiangg21
+        console.log(vm.reversedmessage);//12ggnaij
+        vm.message = "wangwangwang21";
+        console.log(vm.message);//wangwangwang21
+        console.log(vm.reversedmessage);//12gnawgnawgnaw
+        console.log(vm.reversedMessage2);//
+       // vm.reversedMessage 的值始终取决于 vm.message 的值。
+</script>
+<style>
+    .message{
+        color: rgb(86, 172, 0);
+        font-style: oblique;
+    }
+</style>
+</html>

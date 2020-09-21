@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绑定html class 数组语法</title>
+</head>
+<body>
+    <div class="wang">
+        <!-- 数组语法与三元表达式 -->
+        <div class="test" v-bind:class = "[isActive?'active':'',isStyle?'Style':'']"
+        style="width: 250px;height: 100px;text-align: center;">
+            Jiangg21
+        </div>
+    </div>    
+</body>
+<script src="../../Vue.js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:".wang",
+        data:{
+            isStyle:true,
+            isActive:false
+        }
+    });
+</script>
+<style>
+    .test{
+        
+    
+    }
+    .Style
+    {
+        color: rgb(20, 233, 20);
+        font-size: 50px;
+        
+        
+    }
+    .active{
+        background: red;
+        
+    }
+    
+</style>
+</html>

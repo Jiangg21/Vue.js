@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script src="../Vue.js/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            {{message}}
+        </div>
+        <script>
+            var vm =   new Vue(
+                {
+                    el:'#app',
+                    data:{
+                        message:"hi Vue"
+                    },
+                    //在实例初始化之后，数据观测（data observer）和event/wacther 事件配置之前被调用
+                    //整个页面创建之前创建的生命周期
+                    beforeCreate:function()
+                    {
+                        console.log("beforecreated!");
+                    },
+                    //在实例创建完成后被调用立即执行
+                    //实例完成了数据观测（data observer），属性和方法运算，watcher/event事件回调
+                    //此时还未挂载，$el属性不可见
+                    created:function ()//created 钩子以用来在一个实例被创建之后执行代码：
+                    {
+                        console.log("created")
+                    },
+                    //在挂载开始前被调用，此时相关的渲染函数首次被调用
+                    beforeMount:function()
+                    {
+                        console.log("beforeMount")
+                    },
+                    //el被创建的vm.el替换，挂载成功
+                    mounted:function()
+                    {console.log("Mounted")},
+                    //数据更新时调用
+                    beforeUpdate:function()
+                    {
+                        console.log("beforeUpdate")
+
+                    },
+                    //组件Dom更新完毕
+                    update:function()
+                    {
+                        console.log("update")
+                    }
+                }
+            );
+            
+            setTimeout(function(){
+                vm.message = "changed";
+            },3000)
+        </script>
+    </body>
+</html>

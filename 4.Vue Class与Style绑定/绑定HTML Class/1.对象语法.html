@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绑定html class 对象语法</title>
+</head>
+<body>
+    <div class="wang">
+        <div class="test" v-bind:class = "{active:isActive,Style:isStyle}"
+        style="width: 250px;height: 100px;text-align: center;">
+            Jiangg21
+        </div>
+        <br>
+       
+        <div v-bind:class = "classObject"
+        style="width: 400px;height: 100px;text-align: center;">
+            wangwangwang
+        </div>
+    </div>    
+</body>
+<script src="../../Vue.js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:".wang",
+        data:{
+            isStyle:true,
+            isActive:true,
+            classObject:{
+                active2:true,
+                Style2:true
+            }
+        }
+    });
+</script>
+<style>
+    .test{
+        
+    
+    }
+    .Style
+    {
+        color: rgb(20, 233, 20);
+        font-size: 50px;
+        
+        
+    }
+    .active{
+        background: red;
+    }
+
+    .Style2
+    {
+        color: rgb(14, 163, 14);
+        font-size: 50px;
+        
+        
+    }
+    .active2{
+        background: rgb(155, 21, 21);
+    }
+    
+    
+</style>
+</html>

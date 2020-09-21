@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script src="../Vue.js/vue.js"></script>
+</head>
+
+<body>
+    <div class="wang" >
+        {{message}}
+        <!-- v-Html指令 原始html指令 -->
+        <p v-html="rawHtml"></p>
+        <!-- v-bind指令  Attribute-->
+        <div v-bind:class="color">
+            <p>正在学Vue</p>
+        </div>
+        <!-- 支持javascript表达式 -->
+        <p>{{number+11}}</p>
+        <p>是不是学生:{{student?'是学生':'不是学生'}}</p>
+        <p>{{msg.split('').reverse().join('')}}</p>
+    </div>
+    <script>
+        var vm = new Vue(
+            {
+                el: '.wang',
+                data: {
+                    message:"jiangg21",
+                    rawHtml:'<span style = "color:red;font-size:50px  ">jiangg21</span>',
+                    color:'co',
+                    number:10,
+                    student:1,
+                    msg:"Vue.js",    
+                }
+            }
+        );
+        vm.message = "Hi Vue"
+    </script>
+    <style>
+        .co
+        {
+            color:blue;
+            font-size: 50px;
+            
+        }
+    </style>
+</body>
+
+</html>

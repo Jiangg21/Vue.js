@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础用法</title>
+</head>
+
+<body>
+    <div class="wang">
+        <!-- v-model 会忽略所有表单元素的value、checked、selected的初始值，总是将Vue实例的数据最为数据来源。 -->
+        <input type="text" v-model.trim="message" placeholder="输入信息">
+        <p>你输入的信息是：{{message}}</p>
+        <br>
+        <span>Multiline message is:</span>
+        <p style="white-space: pre-line;">{{ message }}</p>
+        <br>
+        <textarea v-model="message" placeholder="add multiple lines"></textarea>
+
+        <!-- checkbox复选框 -->
+        <br>
+        <input type="checkbox" id="checkbox" v-model = "checked">
+        <label for="checkbox">{{checked}}</label>
+        <br>
+
+        <!-- 多个复选框绑定到同一个数组 -->
+        <input type="checkbox" name="" id="wang" value="wang" v-model = "checkNames">
+        <label for="wang">wang</label>
+        <input type="checkbox" name="" id="ke" value="ke" v-model = "checkNames">
+        <label for="ke">ke</label>
+        <input type="checkbox" name="" id="jiang" value="jiang" v-model = "checkNames">
+        <label for="jiang">jiang</label>
+        <span>Checked names: {{ checkNames }}</span>
+        <br>
+        
+        <!-- 单选按钮 -->
+        <input type="radio" name="" id="one" value="one" v-model = "picked">
+        <label for="one">One</label>
+        <input type="radio" name="" id="two" value="two" v-model = "picked">
+        <label for="two">Two</label>
+        <br>
+
+        <!-- 选择框 -->
+        <select name="" id="" v-model = "selected">
+            <option disabled value="">请选择</option>
+            <option value="wangwangwang">wangwangwang</option>
+            <option value="jiangg21">jiangg21</option>
+            <option value="wang21">wang21</option>
+        </select>
+        <span>Your choose is:{{selected}}</span>
+        <br>
+        
+        <!-- 多选 -->
+        <select name="" id="" v-model = "selected2">
+            <option disabled value="">请选择</option>
+            <option value="wangwangwang">wangwangwang</option>
+            <option value="jiangg21">jiangg21</option>
+            <option value="wang21">wang21</option>
+        </select>
+        <span>Your choose is:{{selected2}}</span>
+        <br>
+
+        <!-- 用v-for渲染动态选项 -->
+        <select name="" id="" v-model = "selected3">
+            <option v-for = "option in options" v-bind:value = "option.value">
+                {{option.text}}
+            </option>
+        </select>
+        <span>Selected:{{selected3}}</span>
+
+    </div>
+</body>
+<script src="../Vue.js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '.wang',
+        data: {
+            message: '',
+            checked:'false',
+            checkNames:[],
+            picked:'',
+            selected:'',
+            selected2:[],
+            selected3:'',
+            options:[
+                {text:'wang',value:'A'},
+                {text:'ke',value:'B'},
+                {text:'jiangg',value:'C'}
+            ]
+        }
+    });
+</script>
+
+</html>
